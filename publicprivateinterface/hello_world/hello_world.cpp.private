@@ -1,0 +1,22 @@
+/**
+ * @file hello_world.cpp.private
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2023-11-02
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+#include "hello_world.hpp"
+
+#include "hello.hpp"
+
+void HelloWorld() {
+    std::cout << "PRIVATE: " << Hello() << std::endl;
+}
+
+void Test() {
+    std::cout << "PRIVATE: " << "Test" << std::endl;
+}
