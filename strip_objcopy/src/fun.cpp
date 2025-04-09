@@ -9,4 +9,5 @@ void fun(int a) {
 void fun1() {
     int * a = nullptr;
     int b = *a;
+    std::cout << "fun1 =" << b << std::endl;
 }
