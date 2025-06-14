@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.23)
+project(breakpad_example)
+
+find_package(PkgConfig REQUIRED)
+pkg_search_module(BREAKPAD REQUIRED breakpad)
+message(STATUS "BREAKPAD_FOUND: ${BREAKPAD_FOUND}")
+message(STATUS "BREAKPAD_INCLUDE_DIRS: ${BREAKPAD_INCLUDE_DIRS}")
+message(STATUS "BREAKPAD_LIBRARIES: ${BREAKPAD_LIBRARIES}")
+message(STATUS "BREAKPAD_VERSION: ${BREAKPAD_VERSION}")
+
+pkg_search_module(BREAKPAD_CLIENT REQUIRED breakpad-client)
+message(STATUS "BREAKPAD_CLIENT_FOUND: ${BREAKPAD_CLIENT_FOUND}")
+message(STATUS "BREAKPAD_CLIENT_INCLUDE_DIRS: ${BREAKPAD_CLIENT_INCLUDE_DIRS}")
+message(STATUS "BREAKPAD_CLIENT_LIBRARIES: ${BREAKPAD_CLIENT_LIBRARIES}")
+message(STATUS "BREAKPAD_CLIENT_VERSION: ${BREAKPAD_CLIENT_VERSION}")
+
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+file(GLOB SOURCES
+    "src/*.cpp"
+)
+add_executable(breakpad_example ${SOURCES})
+target_include_directories(breakpad_example PUBLIC
+    ${BREAKPAD_INCLUDE_DIRS}
+    ${BREAKPAD_CLIENT_INCLUDE_DIRS}
+)
+target_link_libraries(breakpad_example
+    ${BREAKPAD_LIBRARIES}
+    ${BREAKPAD_CLIENT_LIBRARIES}
+    pthread
+)
