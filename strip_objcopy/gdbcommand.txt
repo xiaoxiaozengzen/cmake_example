@@ -1,0 +1,4 @@
+set debug-file-directory /mnt/workspace/cgz_workspace/Exercise/cmake_example/strip_objcopy/build/Debug/
+set solib-search-path /mnt/workspace/cgz_workspace/Exercise/cmake_example/strip_objcopy/build/Lib/
+file ./Lib/strip_objcopy_exe
+core ./core.strip_objcopy_e.1715257.1750684722
