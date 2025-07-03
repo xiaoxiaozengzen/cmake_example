@@ -2,17 +2,13 @@ cmake_minimum_required(VERSION 3.14)
 project(add_library_example)
 
 
-# 简单使用interfcae
-# add_library(Plus INTERFACE Plus/plus.h)
-# target_include_directories(Plus INTERFACE 
-#     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Plus>
-#     $<INSTALL_INTERFACE:include>
-# )
+# set(CMAKE_PREFIX_PATH /mnt/workspace/cgz_workspace/Exercise/cmake_example/add_library/interface/Plus/install/lib)
+set(CMAKE_PREFIX_PATH /mnt/workspace/cgz_workspace/Exercise/cmake_example/add_library/interface/Plus/install/lib/cmake)
 
-include(Plus/install/lib/cmake/Plus/plusExport.cmake)
+find_package(Plus REQUIRED)
 
 add_executable(main_exe main.cpp)
-target_link_libraries(main_exe PUBLIC Upstream::Plus)
+target_link_libraries(main_exe PUBLIC Plus::Plus)
 
-get_target_property(IID Upstream::Plus INTERFACE_INCLUDE_DIRECTORIES)
+get_target_property(IID Plus::Plus INTERFACE_INCLUDE_DIRECTORIES)
 message(STATUS "IID: ${IID}")

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "plus.h"
+#include "plus/plus.hpp"
 
 int main() {
     int a = 10;
