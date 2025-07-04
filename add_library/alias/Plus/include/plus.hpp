@@ -1,3 +1,5 @@
+#pragma once
+
 #include <type_traits>
 
 template <class T, class = typename std::enable_if<std::is_integral<T>::value>::type>
@@ -11,3 +13,5 @@ plus1(T a, T b) {
     return a + b;
 }
 
+
+int plus2(int a, int b);

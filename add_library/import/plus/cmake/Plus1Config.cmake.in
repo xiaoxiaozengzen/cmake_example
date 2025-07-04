@@ -1,7 +1,0 @@
-@PACKAGE_INIT@
-
-if (NOT TARGET Plus1::Plus)
-  include ("${CMAKE_CURRENT_LIST_DIR}/Plus1Targets.cmake")
-endif (NOT TARGET Plus1::Plus)
-
- 

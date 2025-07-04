@@ -1,7 +1,18 @@
-#include <iostream>     // std::cout
-#include "plus.h"
+#include <iostream>
+
+#include "plus/plus.hpp"
+#include "add/add.hpp"
 
 int main() {
-	int result = plus(10, 20);
-	std::cout << result << std::endl;
+    int a = 10;
+    int b = 20;
+    int c = plus<int, int>(a, b);
+    int d = plus1<int>(a, b);
+    std::cout << "Plus of " << a << " and " << b << " is " << c << std::endl;
+    std::cout << "Plus of " << a << " and " << b << " is " << d << std::endl;
+    
+    int e = add(a, b);
+    std::cout << "Addition of " << a << " and " << b << " is " << e << std::endl;
+
+    return 0;
 }
