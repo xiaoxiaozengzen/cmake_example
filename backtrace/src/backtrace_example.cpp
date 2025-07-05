@@ -1,4 +1,7 @@
-#include <execinfo.h>
+extern "C" {
+    #include <execinfo.h>
+}
+
 #include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -6,6 +9,10 @@
 #include <cstdlib>
 
 #include <iostream>
+
+extern "C" {
+    void print_backtrace();
+}
 
 #define MAX_STACK_FRAMES 100
 
